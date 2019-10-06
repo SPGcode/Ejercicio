@@ -1,0 +1,60 @@
+h1 {
+  border: solid #bbb;
+  padding: 0;
+  background: blue;
+  text-align: center;
+  color: azure;
+}
+p {
+  text-align: center;
+}
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background: #83a4d4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #b6fbff,
+    #83a4d4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #b6fbff,
+    #83a4d4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+input {
+  border: solid 2px;
+  margin-left: 2rem;
+}
+#users {
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  background-color: blue;
+  display: inline-block;
+}
+#users li {
+  background-color: #83a4d4;
+  width: 150px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #666;
+}
+#users li + li {
+  margin-top: 8px;
+}
+#footer {
+  margin-top: 400px;
+}
+#list {
+  background-color: inherit;
+  margin: 7rem;
+  padding: 1rem;
+  border: none;
+  /* IMPORTANTE */
+  text-align: center;
+}   .button{
+  border: 5px solid blue;
+}

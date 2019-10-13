@@ -10,61 +10,52 @@ function getUsers() {
     .then(response => response.json())
     .then(users => {
           this.users = users;
-          this.setUsers();
       });
 }
 
 //scope users.js
 
 
-function setUsers() {
+function setUsers(users) {
   //scope setUsers
-  this.users.forEach((user) => {
-    const li = document.createElement('li');
-      li.innerHTML = `<li><a href="https://jsonplaceholder.typicode.com/users/${user.id}">${user.name}</a></li>`;
+  users.forEach((user) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<li id="${user.name}">${user.name}</a></li>`;
       ul.appendChild(li);
+      // TODO: Los resultados son clicables y te llevan a la página de ese usuario. 
+      li.addEventListener('click', function (){
+        alert("Ud. Esta accediendo a los datos de:  " + user.name);
+        document.getElementById("h").innerHTML = "Datos de Usuario";
+        const tr = document.createElement('tr');
+        const table = document.getElementById('myTable');
+        table.className.toggle = ('open');
+        tr.innerHTML = `<tr><td>Nombre:  <br>${user.name}</td><td>Usuario:  <br>${user.username}</td><td>E-mail:  <br>${user.email}</td><td>Codigo Postal:  <br>${user.address.zipcode}</td><td>Calle:  <br>${user.address.street}</td><td>Ciudad:  <br>${user.address.city}</td><td>Web:  <br>${user.website}</td></tr>`
+        table.appendChild(tr);
+        closeList();
+       });
   })
-
-  /**
-   * Cuando vayas a usar funciones anónimas, en general puedes cambiarla por una arrow function () =>
-      this.users.forEach(function (users) {
-        const li = document.createElement('li');
-        li.innerHTML = `<li><a href="https://jsonplaceholder.typicode.com/users/${user.id}">${user.name}</a></li>`;
-        ul.appendChild(li);
-      });
-   */
 }
+// AUTOCOMPLETE 
 
-function enviado(event) {
-  console.log("has clickeado");
-  console.log(event);
-} 
+function searchUser(keypress) {
 
-/**
- * La llamada a init() se hace lo último
- * porque es la llamada que inicia todo,
- * quieres que antes esté todo el archivo cargado.
- */
+    // TODO: Buscar en la lista de usuarios sin pulsar enter y se va rellenando una lista debajo del input.
+    const input = document.getElementById('inputName').value;
+    const foundUsers = this.users.filter(user => user.name.includes(input));
+    console.log(foundUsers)
+    this.setUsers(foundUsers);
+    input !== ''  ? openList() : closeList();
+    
+    //foundUsers === input ?  closeList() : openList();
+
+        }
+ //TODO: Si no hay resultados, la lista debajo del input debería desaparecer.                
+function closeList (){
+        const div = document.getElementById('myDiv');
+        div.className = ('close');
+}
+function openList (){
+        const div = document.getElementById('myDiv');
+        div.className = ('open');
+}
 init();
-
-
- 
-  
-//YO TE OIGO
-
-
-// function go(){
-
-// }
-
-
-
-// values.addEventListener("keyup", function(e){
-//   if (e.which === 13){
-//      for (let i = 0; i < ul.length; i++) {
-//        if (values === ul[i])
-//        console.log(ul[i])
-//      }
-//       }
-//   })
- 

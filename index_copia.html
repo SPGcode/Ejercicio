@@ -14,31 +14,20 @@
 </head>
 <body>
  <div>
-               <h1>LISTA DE USUARIOS PAG PRINCIPAL</h1>
-        <form  submit="enviado($event)">
-              <input id="myInput" type="text" name="myCountry" placeholder="search user">
-              <input type="submit" id="myButton" class="button">
-        </form>
+               <h1 id="h" class="h1">LISTA DE USUARIOS PAG PRINCIPAL</h1>
+        <div>
+              <input id="inputName" type="text" onkeyup="searchUser(event)" placeholder="search user"><br>
+              <div id="myDiv">
+                     <ul id="users"></ul>
+              </div>
+        </div>
+
+              <div id="divPag">
+                     <table id="myTable" class="table table-dark"></table>
+              </div>  
+        
  </div>
-       
-
- <div id="list">
-        <ul id="users" class="demo"> 
-                
-        </ul>
- </div >
-
- <div id="footer" class="container-fluid">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="pag1.html">1</a></li>
-                <li class="page-item"><a class="page-link" href="pag1.html">Next</a></li>                  
-             </ul>
-       </nav>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <button type="submit" class="btn btn-dark" onclick="document.location.reload()">REFRESH</button>
     <script src='users.js'></script>
-    <script src="autocomplete.js"></script>
 </body>
 </html>
